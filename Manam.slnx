@@ -1,0 +1,8 @@
+<Solution>
+  <Project Path="Manam.API/Manam.API.csproj" />
+  <Project Path="Manam.Auth/Manam.Auth.csproj" />
+  <Project Path="Manam.DatabaseClient/Manam.DatabaseClient.csproj" />
+  <Project Path="Manam.Models/Manam.Models.csproj" />
+  <Project Path="Manam.Services/Manam.Services.csproj" />
+  <Project Path="Manam.Storage/Manam.Storage.csproj" />
+</Solution>

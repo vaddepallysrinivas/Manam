@@ -1,0 +1,12 @@
+C:\Users\srini\source\Repos\Manam\Manam.Models\bin\Debug\net10.0\Manam.Models.deps.json
+C:\Users\srini\source\Repos\Manam\Manam.Models\bin\Debug\net10.0\Manam.Models.dll
+C:\Users\srini\source\Repos\Manam\Manam.Models\bin\Debug\net10.0\Manam.Models.pdb
+C:\Users\srini\source\Repos\Manam\Manam.Models\obj\Debug\net10.0\Manam.Models.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\srini\source\Repos\Manam\Manam.Models\obj\Debug\net10.0\Manam.Models.AssemblyInfoInputs.cache
+C:\Users\srini\source\Repos\Manam\Manam.Models\obj\Debug\net10.0\Manam.Models.AssemblyInfo.cs
+C:\Users\srini\source\Repos\Manam\Manam.Models\obj\Debug\net10.0\Manam.Models.csproj.CoreCompileInputs.cache
+C:\Users\srini\source\Repos\Manam\Manam.Models\obj\Debug\net10.0\Manam.Models.sourcelink.json
+C:\Users\srini\source\Repos\Manam\Manam.Models\obj\Debug\net10.0\Manam.Models.dll
+C:\Users\srini\source\Repos\Manam\Manam.Models\obj\Debug\net10.0\refint\Manam.Models.dll
+C:\Users\srini\source\Repos\Manam\Manam.Models\obj\Debug\net10.0\Manam.Models.pdb
+C:\Users\srini\source\Repos\Manam\Manam.Models\obj\Debug\net10.0\ref\Manam.Models.dll

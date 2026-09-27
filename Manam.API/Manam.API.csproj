@@ -1,0 +1,24 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="10.0.11" />
+    <PackageReference Include="Serilog" Version="4.0.0" />
+    <PackageReference Include="Serilog.AspNetCore" Version="8.0.1" />
+    <PackageReference Include="Serilog.Sinks.Console" Version="6.0.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Manam.Services\Manam.Services.csproj" />
+    <ProjectReference Include="..\Manam.Auth\Manam.Auth.csproj" />
+    <ProjectReference Include="..\Manam.DatabaseClient\Manam.DatabaseClient.csproj" />
+    <ProjectReference Include="..\Manam.Storage\Manam.Storage.csproj" />
+    <ProjectReference Include="..\Manam.Models\Manam.Models.csproj" />
+  </ItemGroup>
+
+</Project>

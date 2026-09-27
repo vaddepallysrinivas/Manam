@@ -1,0 +1,13 @@
+C:\Users\srini\source\Repos\Manam\Manam.DatabaseClient\obj\Debug\net10.0\Manam.DatabaseClient.csproj.AssemblyReference.cache
+C:\Users\srini\source\Repos\Manam\Manam.DatabaseClient\obj\Debug\net10.0\Manam.DatabaseClient.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\srini\source\Repos\Manam\Manam.DatabaseClient\obj\Debug\net10.0\Manam.DatabaseClient.AssemblyInfoInputs.cache
+C:\Users\srini\source\Repos\Manam\Manam.DatabaseClient\obj\Debug\net10.0\Manam.DatabaseClient.AssemblyInfo.cs
+C:\Users\srini\source\Repos\Manam\Manam.DatabaseClient\obj\Debug\net10.0\Manam.DatabaseClient.csproj.CoreCompileInputs.cache
+C:\Users\srini\source\Repos\Manam\Manam.DatabaseClient\obj\Debug\net10.0\Manam.DatabaseClient.sourcelink.json
+C:\Users\srini\source\Repos\Manam\Manam.DatabaseClient\bin\Debug\net10.0\Manam.DatabaseClient.deps.json
+C:\Users\srini\source\Repos\Manam\Manam.DatabaseClient\bin\Debug\net10.0\Manam.DatabaseClient.dll
+C:\Users\srini\source\Repos\Manam\Manam.DatabaseClient\bin\Debug\net10.0\Manam.DatabaseClient.pdb
+C:\Users\srini\source\Repos\Manam\Manam.DatabaseClient\obj\Debug\net10.0\Manam.DatabaseClient.dll
+C:\Users\srini\source\Repos\Manam\Manam.DatabaseClient\obj\Debug\net10.0\refint\Manam.DatabaseClient.dll
+C:\Users\srini\source\Repos\Manam\Manam.DatabaseClient\obj\Debug\net10.0\Manam.DatabaseClient.pdb
+C:\Users\srini\source\Repos\Manam\Manam.DatabaseClient\obj\Debug\net10.0\ref\Manam.DatabaseClient.dll

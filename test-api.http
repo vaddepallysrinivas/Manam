@@ -1,0 +1,510 @@
+### Manam User Management API - Test File
+### This file contains all API endpoints with mock JSON payloads for testing
+### Use with REST Client extension in VS Code
+
+### ========================================
+### ENVIRONMENT VARIABLES
+### ========================================
+@baseUrl = https://localhost:7001/api/v1
+@contentType = application/json
+
+# These will be set after successful login
+@token = your-jwt-token-here
+@userId = 1
+@refreshToken = your-refresh-token-here
+
+###
+### ========================================
+### AUTHENTICATION ENDPOINTS
+### ========================================
+
+### 1. REGISTER NEW USER
+POST {{baseUrl}}/authentication/register
+Content-Type: {{contentType}}
+
+{
+  "username": "johndoe123",
+  "email": "john.doe@example.com",
+  "password": "MyPassword123!",
+  "confirmPassword": "MyPassword123!",
+  "firstName": "John",
+  "lastName": "Doe",
+  "phoneNumber": "+1-555-0123456"
+}
+
+###
+
+### 2. LOGIN USER
+POST {{baseUrl}}/authentication/login
+Content-Type: {{contentType}}
+
+{
+  "email": "john.doe@example.com",
+  "password": "MyPassword123!",
+  "ipAddress": "192.168.1.1",
+  "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64)"
+}
+
+###
+
+### 3. REGISTER WITH VALIDATION ERROR (Missing Special Character)
+POST {{baseUrl}}/authentication/register
+Content-Type: {{contentType}}
+
+{
+  "username": "jane123",
+  "email": "jane@example.com",
+  "password": "MyPassword123",
+  "confirmPassword": "MyPassword123",
+  "firstName": "Jane",
+  "lastName": "Smith"
+}
+
+###
+
+### 4. LOGIN WITH INVALID CREDENTIALS
+POST {{baseUrl}}/authentication/login
+Content-Type: {{contentType}}
+
+{
+  "email": "nonexistent@example.com",
+  "password": "WrongPassword123!",
+  "ipAddress": "192.168.1.100",
+  "userAgent": "PostmanRuntime/7.28.0"
+}
+
+###
+
+### 5. FORGOT PASSWORD REQUEST
+POST {{baseUrl}}/authentication/forgot-password?email=john.doe@example.com
+
+###
+
+### 6. RESET PASSWORD
+POST {{baseUrl}}/authentication/reset-password
+Content-Type: {{contentType}}
+
+{
+  "token": "password-reset-token-from-email",
+  "newPassword": "NewPassword123!",
+  "confirmPassword": "NewPassword123!"
+}
+
+###
+
+### 7. VERIFY EMAIL
+POST {{baseUrl}}/authentication/verify-email/1
+Content-Type: {{contentType}}
+
+###
+
+###
+### ========================================
+### USER PROFILE ENDPOINTS (PROTECTED)
+### Requires JWT Token in Authorization header
+### ========================================
+
+### 8. GET CURRENT USER PROFILE
+GET {{baseUrl}}/userprofile/me
+Authorization: Bearer {{token}}
+
+###
+
+### 9. GET SPECIFIC USER PROFILE (By ID)
+GET {{baseUrl}}/userprofile/2
+Authorization: Bearer {{token}}
+
+###
+
+### 10. GET ALL USERS (PAGINATED - Admin Only)
+GET {{baseUrl}}/userprofile?pageNumber=1&pageSize=10
+Authorization: Bearer {{token}}
+
+###
+
+### 11. UPDATE USER PROFILE
+PUT {{baseUrl}}/userprofile/me
+Authorization: Bearer {{token}}
+Content-Type: {{contentType}}
+
+{
+  "firstName": "John",
+  "lastName": "Smith-Doe",
+  "phoneNumber": "+1-555-9876543"
+}
+
+###
+
+### 12. UPDATE ANOTHER USER (Admin Only)
+PUT {{baseUrl}}/userprofile/2
+Authorization: Bearer {{token}}
+Content-Type: {{contentType}}
+
+{
+  "firstName": "Jane",
+  "lastName": "Johnson",
+  "phoneNumber": "+1-555-5555555"
+}
+
+###
+
+### 13. DELETE CURRENT USER (Soft Delete)
+DELETE {{baseUrl}}/userprofile/me
+Authorization: Bearer {{token}}
+
+###
+
+### 14. DELETE ANOTHER USER (Admin Only - Soft Delete)
+DELETE {{baseUrl}}/userprofile/3
+Authorization: Bearer {{token}}
+
+###
+
+### 15. LINK EXTERNAL PROVIDER (Google, Facebook, GitHub)
+POST {{baseUrl}}/userprofile/link-provider
+Authorization: Bearer {{token}}
+Content-Type: {{contentType}}
+
+{
+  "providerId": 1,
+  "externalUserId": "google-user-id-12345",
+  "externalEmail": "john.doe@gmail.com",
+  "accessToken": "google-access-token-abc123def456"
+}
+
+###
+
+### 16. LINK FACEBOOK PROVIDER
+POST {{baseUrl}}/userprofile/link-provider
+Authorization: Bearer {{token}}
+Content-Type: {{contentType}}
+
+{
+  "providerId": 2,
+  "externalUserId": "facebook-user-id-98765",
+  "externalEmail": "john.doe@facebook.com",
+  "accessToken": "facebook-access-token-xyz789"
+}
+
+###
+
+### 17. LINK GITHUB PROVIDER
+POST {{baseUrl}}/userprofile/link-provider
+Authorization: Bearer {{token}}
+Content-Type: {{contentType}}
+
+{
+  "providerId": 3,
+  "externalUserId": "github-username-johndoe",
+  "externalEmail": null,
+  "accessToken": "github-personal-access-token-ghu_abc123"
+}
+
+###
+
+### 18. ASSIGN ADMIN ROLE TO USER (Admin Only)
+POST {{baseUrl}}/userprofile/2/roles
+Authorization: Bearer {{token}}
+Content-Type: {{contentType}}
+
+{
+  "roleId": 1,
+  "roleName": "Admin"
+}
+
+###
+
+### 19. ASSIGN MODERATOR ROLE
+POST {{baseUrl}}/userprofile/3/roles
+Authorization: Bearer {{token}}
+Content-Type: {{contentType}}
+
+{
+  "roleId": 3,
+  "roleName": "Moderator"
+}
+
+###
+
+### 20. ASSIGN GUEST ROLE
+POST {{baseUrl}}/userprofile/4/roles
+Authorization: Bearer {{token}}
+Content-Type: {{contentType}}
+
+{
+  "roleId": 4,
+  "roleName": "Guest"
+}
+
+###
+
+###
+### ========================================
+### ERROR HANDLING TEST CASES
+### ========================================
+
+### 21. LOGIN WITHOUT TOKEN (Should Fail)
+GET {{baseUrl}}/userprofile/me
+
+###
+
+### 22. INVALID TOKEN (Should Fail)
+GET {{baseUrl}}/userprofile/me
+Authorization: Bearer invalid-token-xyz
+
+###
+
+### 23. EXPIRED TOKEN (Should Fail)
+GET {{baseUrl}}/userprofile/me
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxIiwiZXhwIjoxNjAwMDAwMDAwfQ.invalid_expired_token
+
+###
+
+### 24. ACCESS ADMIN ENDPOINT AS REGULAR USER (Should Fail)
+GET {{baseUrl}}/userprofile?pageNumber=1&pageSize=10
+Authorization: Bearer {{token}}
+
+###
+
+### 25. DELETE OTHER USER AS REGULAR USER (Should Fail)
+DELETE {{baseUrl}}/userprofile/5
+Authorization: Bearer {{token}}
+
+###
+
+###
+### ========================================
+### BATCH TEST - COMPLETE WORKFLOW
+### ========================================
+
+### STEP 1: Register New User
+### Copy the userId from response
+POST {{baseUrl}}/authentication/register
+Content-Type: {{contentType}}
+
+{
+  "username": "testuser2025",
+  "email": "testuser@example.com",
+  "password": "TestPassword123!",
+  "confirmPassword": "TestPassword123!",
+  "firstName": "Test",
+  "lastName": "User",
+  "phoneNumber": "+1-555-0000001"
+}
+
+###
+
+### STEP 2: Login with New User
+### Copy the JWT token from response
+POST {{baseUrl}}/authentication/login
+Content-Type: {{contentType}}
+
+{
+  "email": "testuser@example.com",
+  "password": "TestPassword123!",
+  "ipAddress": "192.168.100.50",
+  "userAgent": "TestClient/1.0"
+}
+
+###
+
+### STEP 3: Get Profile with Token
+### Paste token from Step 2
+GET {{baseUrl}}/userprofile/me
+Authorization: Bearer {{token}}
+
+###
+
+### STEP 4: Update Profile
+PUT {{baseUrl}}/userprofile/me
+Authorization: Bearer {{token}}
+Content-Type: {{contentType}}
+
+{
+  "firstName": "UpdatedTest",
+  "lastName": "UpdatedUser",
+  "phoneNumber": "+1-555-1111111"
+}
+
+###
+
+### STEP 5: Link Google Account
+POST {{baseUrl}}/userprofile/link-provider
+Authorization: Bearer {{token}}
+Content-Type: {{contentType}}
+
+{
+  "providerId": 1,
+  "externalUserId": "google-abc123xyz",
+  "externalEmail": "testuser@gmail.com",
+  "accessToken": "ya29.a0AfH6SMBx..."
+}
+
+###
+
+### STEP 6: Get Updated Profile
+GET {{baseUrl}}/userprofile/me
+Authorization: Bearer {{token}}
+
+###
+
+### STEP 7: Delete User Account (Soft Delete)
+DELETE {{baseUrl}}/userprofile/me
+Authorization: Bearer {{token}}
+
+###
+
+###
+### ========================================
+### ADDITIONAL TEST CASES
+### ========================================
+
+### Register Multiple Users for Testing
+POST {{baseUrl}}/authentication/register
+Content-Type: {{contentType}}
+
+{
+  "username": "alice.wilson",
+  "email": "alice.wilson@example.com",
+  "password": "AlicePass123!",
+  "confirmPassword": "AlicePass123!",
+  "firstName": "Alice",
+  "lastName": "Wilson",
+  "phoneNumber": "+1-555-2222222"
+}
+
+###
+
+### Register Another User
+POST {{baseUrl}}/authentication/register
+Content-Type: {{contentType}}
+
+{
+  "username": "bob.johnson",
+  "email": "bob.johnson@example.com",
+  "password": "BobPass123!",
+  "confirmPassword": "BobPass123!",
+  "firstName": "Bob",
+  "lastName": "Johnson",
+  "phoneNumber": "+1-555-3333333"
+}
+
+###
+
+### Register Admin User
+POST {{baseUrl}}/authentication/register
+Content-Type: {{contentType}}
+
+{
+  "username": "admin.user",
+  "email": "admin@example.com",
+  "password": "AdminPass123!",
+  "confirmPassword": "AdminPass123!",
+  "firstName": "Admin",
+  "lastName": "User",
+  "phoneNumber": "+1-555-4444444"
+}
+
+###
+
+###
+### ========================================
+### PASSWORD RESET WORKFLOW
+### ========================================
+
+### Request Password Reset
+POST {{baseUrl}}/authentication/forgot-password?email=john.doe@example.com
+
+###
+
+### Verify Email Token (Sent via Email)
+POST {{baseUrl}}/authentication/verify-email/1
+
+###
+
+### Reset Password with Token
+POST {{baseUrl}}/authentication/reset-password
+Content-Type: {{contentType}}
+
+{
+  "token": "email-verification-token-abc123def456ghi789",
+  "newPassword": "SuperNewPassword123!",
+  "confirmPassword": "SuperNewPassword123!"
+}
+
+###
+
+### Login with New Password
+POST {{baseUrl}}/authentication/login
+Content-Type: {{contentType}}
+
+{
+  "email": "john.doe@example.com",
+  "password": "SuperNewPassword123!",
+  "ipAddress": "192.168.1.50",
+  "userAgent": "Chrome/91.0"
+}
+
+###
+
+###
+### ========================================
+### NOTES FOR TESTING
+### ========================================
+
+# 1. Before running requests:
+#    - Ensure API is running on https://localhost:7001
+#    - Install "REST Client" extension in VS Code
+#    - Create .env file with actual JWT token from login response
+
+# 2. JWT Token Flow:
+#    - Register a new user → Get userId
+#    - Login with credentials → Get JWT token and refresh token
+#    - Copy JWT token to @token variable
+#    - Use in all protected endpoints
+
+# 3. Test Database Roles:
+#    - 1 = Admin
+#    - 2 = User
+#    - 3 = Moderator
+#    - 4 = Guest
+
+# 4. External Provider IDs:
+#    - 1 = Google
+#    - 2 = Facebook
+#    - 3 = GitHub
+
+# 5. Password Requirements:
+#    - Minimum 8 characters
+#    - At least one uppercase letter (A-Z)
+#    - At least one lowercase letter (a-z)
+#    - At least one digit (0-9)
+#    - At least one special character (!@#$%^&*)
+
+# 6. Expected HTTP Status Codes:
+#    - 200 OK: Successful operation
+#    - 201 Created: Resource created successfully
+#    - 400 Bad Request: Validation errors
+#    - 401 Unauthorized: Missing or invalid token
+#    - 403 Forbidden: Insufficient permissions
+#    - 404 Not Found: Resource not found
+#    - 500 Internal Server Error: Server error
+
+# 7. Logging:
+#    All requests are logged in application logs
+#    Location: C:\Program Files\Manam\logs\manam-api-YYYY-MM-DD.txt
+
+# 8. Soft Delete:
+#    When you delete a user, the account is marked as deleted
+#    but not permanently removed from the database
+#    IsDeleted = 1, DeletedAt = current timestamp
+#    Can be restored if needed
+
+# 9. Rate Limiting (Future):
+#    Login endpoint will have rate limiting
+#    Max 5 attempts per minute per IP address
+#    Account lockout after 5 failed attempts
+
+# 10. Two-Factor Authentication (Future):
+#     Will require TOTP or SMS verification after login
+#     Additional endpoint: /authentication/verify-2fa

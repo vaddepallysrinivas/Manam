@@ -1,0 +1,55 @@
+{
+  "version": 2,
+  "dgSpecHash": "G3kUufcmKqQ=",
+  "success": true,
+  "projectFilePath": "C:\\Users\\srini\\source\\Repos\\Manam\\Manam.API\\Manam.API.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\srini\\.nuget\\packages\\azure.core\\1.38.0\\azure.core.1.38.0.nupkg.sha512",
+    "C:\\Users\\srini\\.nuget\\packages\\azure.identity\\1.11.4\\azure.identity.1.11.4.nupkg.sha512",
+    "C:\\Users\\srini\\.nuget\\packages\\dapper\\2.1.15\\dapper.2.1.15.nupkg.sha512",
+    "C:\\Users\\srini\\.nuget\\packages\\microsoft.aspnetcore.openapi\\10.0.11\\microsoft.aspnetcore.openapi.10.0.11.nupkg.sha512",
+    "C:\\Users\\srini\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\1.1.1\\microsoft.bcl.asyncinterfaces.1.1.1.nupkg.sha512",
+    "C:\\Users\\srini\\.nuget\\packages\\microsoft.data.sqlclient\\5.2.0\\microsoft.data.sqlclient.5.2.0.nupkg.sha512",
+    "C:\\Users\\srini\\.nuget\\packages\\microsoft.data.sqlclient.sni.runtime\\5.2.0\\microsoft.data.sqlclient.sni.runtime.5.2.0.nupkg.sha512",
+    "C:\\Users\\srini\\.nuget\\packages\\microsoft.extensions.dependencymodel\\8.0.0\\microsoft.extensions.dependencymodel.8.0.0.nupkg.sha512",
+    "C:\\Users\\srini\\.nuget\\packages\\microsoft.identity.client\\4.61.3\\microsoft.identity.client.4.61.3.nupkg.sha512",
+    "C:\\Users\\srini\\.nuget\\packages\\microsoft.identity.client.extensions.msal\\4.61.3\\microsoft.identity.client.extensions.msal.4.61.3.nupkg.sha512",
+    "C:\\Users\\srini\\.nuget\\packages\\microsoft.identitymodel.abstractions\\6.35.0\\microsoft.identitymodel.abstractions.6.35.0.nupkg.sha512",
+    "C:\\Users\\srini\\.nuget\\packages\\microsoft.identitymodel.jsonwebtokens\\6.35.0\\microsoft.identitymodel.jsonwebtokens.6.35.0.nupkg.sha512",
+    "C:\\Users\\srini\\.nuget\\packages\\microsoft.identitymodel.logging\\6.35.0\\microsoft.identitymodel.logging.6.35.0.nupkg.sha512",
+    "C:\\Users\\srini\\.nuget\\packages\\microsoft.identitymodel.protocols\\6.35.0\\microsoft.identitymodel.protocols.6.35.0.nupkg.sha512",
+    "C:\\Users\\srini\\.nuget\\packages\\microsoft.identitymodel.protocols.openidconnect\\6.35.0\\microsoft.identitymodel.protocols.openidconnect.6.35.0.nupkg.sha512",
+    "C:\\Users\\srini\\.nuget\\packages\\microsoft.identitymodel.tokens\\6.35.0\\microsoft.identitymodel.tokens.6.35.0.nupkg.sha512",
+    "C:\\Users\\srini\\.nuget\\packages\\microsoft.openapi\\2.7.5\\microsoft.openapi.2.7.5.nupkg.sha512",
+    "C:\\Users\\srini\\.nuget\\packages\\microsoft.sqlserver.server\\1.0.0\\microsoft.sqlserver.server.1.0.0.nupkg.sha512",
+    "C:\\Users\\srini\\.nuget\\packages\\serilog\\4.0.0\\serilog.4.0.0.nupkg.sha512",
+    "C:\\Users\\srini\\.nuget\\packages\\serilog.aspnetcore\\8.0.1\\serilog.aspnetcore.8.0.1.nupkg.sha512",
+    "C:\\Users\\srini\\.nuget\\packages\\serilog.extensions.hosting\\8.0.0\\serilog.extensions.hosting.8.0.0.nupkg.sha512",
+    "C:\\Users\\srini\\.nuget\\packages\\serilog.extensions.logging\\8.0.0\\serilog.extensions.logging.8.0.0.nupkg.sha512",
+    "C:\\Users\\srini\\.nuget\\packages\\serilog.formatting.compact\\2.0.0\\serilog.formatting.compact.2.0.0.nupkg.sha512",
+    "C:\\Users\\srini\\.nuget\\packages\\serilog.settings.configuration\\8.0.0\\serilog.settings.configuration.8.0.0.nupkg.sha512",
+    "C:\\Users\\srini\\.nuget\\packages\\serilog.sinks.console\\6.1.0\\serilog.sinks.console.6.1.0.nupkg.sha512",
+    "C:\\Users\\srini\\.nuget\\packages\\serilog.sinks.debug\\2.0.0\\serilog.sinks.debug.2.0.0.nupkg.sha512",
+    "C:\\Users\\srini\\.nuget\\packages\\serilog.sinks.file\\5.0.0\\serilog.sinks.file.5.0.0.nupkg.sha512",
+    "C:\\Users\\srini\\.nuget\\packages\\system.clientmodel\\1.0.0\\system.clientmodel.1.0.0.nupkg.sha512",
+    "C:\\Users\\srini\\.nuget\\packages\\system.configuration.configurationmanager\\8.0.0\\system.configuration.configurationmanager.8.0.0.nupkg.sha512",
+    "C:\\Users\\srini\\.nuget\\packages\\system.identitymodel.tokens.jwt\\6.35.0\\system.identitymodel.tokens.jwt.6.35.0.nupkg.sha512",
+    "C:\\Users\\srini\\.nuget\\packages\\system.memory.data\\1.0.2\\system.memory.data.1.0.2.nupkg.sha512",
+    "C:\\Users\\srini\\.nuget\\packages\\system.runtime.caching\\8.0.0\\system.runtime.caching.8.0.0.nupkg.sha512",
+    "C:\\Users\\srini\\.nuget\\packages\\system.security.cryptography.protecteddata\\8.0.0\\system.security.cryptography.protecteddata.8.0.0.nupkg.sha512"
+  ],
+  "logs": [
+    {
+      "code": "NU1603",
+      "level": "Warning",
+      "message": "Manam.API depends on Serilog.Sinks.Console (>= 6.0.1) but Serilog.Sinks.Console 6.0.1 was not found. Serilog.Sinks.Console 6.1.0 was resolved instead.",
+      "projectPath": "C:\\Users\\srini\\source\\Repos\\Manam\\Manam.API\\Manam.API.csproj",
+      "warningLevel": 1,
+      "filePath": "C:\\Users\\srini\\source\\Repos\\Manam\\Manam.API\\Manam.API.csproj",
+      "libraryId": "Serilog.Sinks.Console",
+      "targetGraphs": [
+        "net10.0"
+      ]
+    }
+  ]
+}
